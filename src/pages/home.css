@@ -1,0 +1,221 @@
+/* ============================================================
+   SantéProx — Page d'accueil publique
+   Même identité visuelle que le reste de la plateforme
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root {
+  --ink-900: #0F3730;
+  --ink-700: #1C4C42;
+  --mint-500: #1A9C6E;
+  --mint-100: #E3F5EC;
+  --mint-050: #F2FAF6;
+
+  --paper: #F6F8F7;
+  --paper-card: #FFFFFF;
+  --line: #E3E9E6;
+  --text-900: #16211D;
+  --text-600: #4B5A54;
+  --text-400: #8A9892;
+
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --radius-capsule: 999px;
+  --radius-card: 16px;
+  --radius-sm: 10px;
+
+  --shadow-card: 0 1px 2px rgba(15, 55, 48, 0.05), 0 8px 24px -10px rgba(15, 55, 48, 0.14);
+  --shadow-hover: 0 6px 14px rgba(15, 55, 48, 0.08), 0 20px 36px -12px rgba(15, 55, 48, 0.20);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+.home-page {
+  font-family: var(--font-body);
+  color: var(--text-900);
+  background: var(--paper);
+  min-height: 100%;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 32px 72px;
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: 88px 24px 96px;
+  background: radial-gradient(120% 140% at 50% -20%, #164A40 0%, var(--ink-900) 55%, #0A2621 100%);
+  color: #fff;
+}
+
+/* Motif discret évoquant une croix de pharmacie, en arrière-plan du hero */
+.home-hero::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 320px;
+  height: 320px;
+  background:
+    linear-gradient(var(--mint-500), var(--mint-500)) center / 100% 26% no-repeat,
+    linear-gradient(var(--mint-500), var(--mint-500)) center / 26% 100% no-repeat;
+  opacity: 0.08;
+  border-radius: 28px;
+  transform: rotate(12deg);
+}
+
+.home-hero::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 260px;
+  height: 260px;
+  border: 40px solid var(--mint-500);
+  border-radius: 50%;
+  opacity: 0.06;
+}
+
+.home-eyebrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--radius-capsule);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--mint-100);
+}
+
+.home-hero h1 {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  letter-spacing: -0.02em;
+  margin: 8px 0 0;
+}
+
+.home-hero p {
+  position: relative;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 480px;
+  margin: 0;
+}
+
+/* ============================================================
+   Cartes de fonctionnalités
+   ============================================================ */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: -48px;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: 28px 26px;
+  text-decoration: none;
+  color: var(--text-900);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--mint-500);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--mint-500);
+  outline-offset: 3px;
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-sm);
+  background: var(--mint-100);
+  color: var(--mint-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.card:hover .card-icon {
+  background: var(--mint-500);
+  color: #fff;
+}
+
+.card h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: var(--ink-900);
+  margin: 0;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--text-600);
+  line-height: 1.5;
+  margin: 0 0 6px;
+}
+
+.card-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--mint-500);
+  margin-top: auto;
+  padding-top: 4px;
+  transition: gap 0.2s ease;
+}
+
+.card:hover .card-arrow {
+  gap: 10px;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 640px) {
+  .home-hero { padding: 64px 20px 84px; }
+  .container { padding: 0 18px 56px; }
+  .grid-cards { margin-top: -36px; }
+}

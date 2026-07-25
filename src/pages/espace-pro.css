@@ -1,0 +1,439 @@
+/* ============================================================
+   SantéProx — Espace Pro (pharmacie / centre de santé)
+   Feuille de style autonome — icônes Bootstrap Icons uniquement
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root {
+  --ink-900: #0F3730;
+  --ink-700: #1C4C42;
+  --mint-500: #1A9C6E;
+  --mint-100: #E3F5EC;
+  --amber-500: #E29A2E;
+  --amber-100: #FBEFD9;
+  --coral-500: #E1584A;
+  --coral-100: #FBE7E4;
+  --blue-500: #3B6FE0;
+  --blue-100: #E7EDFC;
+
+  --paper: #F6F8F7;
+  --paper-card: #FFFFFF;
+  --line: #E3E9E6;
+  --line-soft: #EEF2F0;
+  --text-900: #16211D;
+  --text-600: #4B5A54;
+  --text-400: #8A9892;
+
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-data: 'IBM Plex Mono', monospace;
+
+  --radius-capsule: 999px;
+  --radius-card: 14px;
+  --radius-sm: 8px;
+
+  --shadow-card: 0 1px 2px rgba(15, 55, 48, 0.04), 0 6px 20px -8px rgba(15, 55, 48, 0.10);
+  --shadow-hover: 0 4px 10px rgba(15, 55, 48, 0.06), 0 14px 30px -10px rgba(15, 55, 48, 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+.pro-dashboard {
+  font-family: var(--font-body);
+  color: var(--text-900);
+  background: var(--paper);
+  min-height: 100%;
+  padding: 28px 32px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ============================================================
+   En-tête
+   ============================================================ */
+.pro-header-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pro-header-title i {
+  font-size: 1.6rem;
+  color: var(--mint-500);
+  background: var(--mint-100);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.pro-header-title h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+  margin: 0;
+}
+
+.pro-header-title p {
+  font-size: 0.875rem;
+  color: var(--text-600);
+  margin: 2px 0 0;
+}
+
+/* ============================================================
+   États : chargement / vide
+   ============================================================ */
+.pro-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 80px 24px;
+  color: var(--text-600);
+  text-align: center;
+}
+
+.pro-loading i {
+  font-size: 2rem;
+  color: var(--mint-500);
+}
+
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.pro-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 40px 24px;
+  background: var(--paper-card);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-card);
+}
+
+.pro-empty-state i {
+  font-size: 2.2rem;
+  color: var(--mint-500);
+  margin-bottom: 6px;
+}
+
+.pro-empty-state h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink-900);
+  margin: 0;
+}
+
+.pro-empty-state p {
+  font-size: 0.85rem;
+  color: var(--text-600);
+  max-width: 420px;
+  margin: 0;
+}
+
+.pro-empty-inline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 32px 16px;
+  color: var(--text-600);
+  text-align: center;
+}
+
+.pro-empty-inline i {
+  font-size: 1.6rem;
+  color: var(--text-400);
+}
+
+.pro-empty-inline p {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* ============================================================
+   Cartes génériques
+   ============================================================ */
+.pro-card {
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: 22px;
+  box-shadow: var(--shadow-card);
+}
+
+.pro-card-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink-900);
+  margin: 0 0 16px;
+}
+
+.pro-card-title i { color: var(--mint-500); }
+
+/* Carte "identité pharmacie" en tête de dashboard */
+.pro-pharmacy-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.pro-pharmacy-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pro-pharmacy-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: var(--mint-100);
+  color: var(--mint-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.pro-pharmacy-info h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink-900);
+  margin: 0 0 6px;
+}
+
+/* ============================================================
+   Tableaux
+   ============================================================ */
+.pro-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-sm);
+}
+
+.pro-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.pro-table thead th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-400);
+  padding: 0 14px 10px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.pro-table tbody td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--text-900);
+  vertical-align: middle;
+}
+
+.pro-table tbody tr:last-child td { border-bottom: none; }
+
+.pro-table tbody tr { transition: background 0.15s ease; }
+.pro-table tbody tr:hover td { background: var(--mint-100); }
+
+.pro-user-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.pro-user-cell i {
+  font-size: 1.2rem;
+  color: var(--text-400);
+}
+
+.text-right { text-align: right; }
+
+/* ============================================================
+   Badges de statut
+   ============================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  border-radius: var(--radius-capsule);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.badge i { font-size: 0.8rem; }
+
+.badge-warning { background: var(--amber-100); color: #9A6A0F; }
+.badge-success { background: var(--mint-100);  color: #0E7A54; }
+.badge-danger  { background: var(--coral-100); color: #B8362A; }
+.badge-neutral { background: var(--line-soft); color: var(--text-600); }
+.badge-blue    { background: var(--blue-100);  color: #2952B3; }
+
+/* ============================================================
+   Boutons
+   ============================================================ */
+.btn-pro {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 15px;
+  border-radius: var(--radius-capsule);
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.16s ease, border-color 0.16s ease, transform 0.1s ease;
+}
+
+.btn-pro:active { transform: translateY(1px); }
+
+.btn-pro:focus-visible {
+  outline: 2px solid var(--mint-500);
+  outline-offset: 2px;
+}
+
+.btn-pro-primary { background: var(--ink-900); color: #fff; }
+.btn-pro-primary:hover { background: var(--ink-700); }
+
+.btn-pro-success { background: var(--mint-500); color: #fff; }
+.btn-pro-success:hover { background: #148058; }
+
+.btn-pro-danger { background: var(--coral-500); color: #fff; }
+.btn-pro-danger:hover { background: #C7473B; }
+
+.btn-pro-ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--text-600);
+}
+.btn-pro-ghost:hover {
+  background: var(--mint-100);
+  border-color: var(--mint-500);
+  color: var(--ink-900);
+}
+
+.pro-actions-row {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   Formulaires
+   ============================================================ */
+.form-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-vertical label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-600);
+}
+
+.form-vertical input,
+.form-vertical select {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-900);
+  padding: 10px 13px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-vertical select {
+  appearance: none;
+  background: var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%234B5A54' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E") no-repeat right 14px center;
+  padding-right: 32px;
+}
+
+.form-vertical input:focus,
+.form-vertical select:focus {
+  outline: none;
+  border-color: var(--mint-500);
+  box-shadow: 0 0 0 3px var(--mint-100);
+  background-color: #fff;
+}
+
+.form-vertical .btn-pro {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   Messages d'état
+   ============================================================ */
+.message-error,
+.message-success {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.message-error {
+  background: var(--coral-100);
+  color: #B8362A;
+}
+
+.message-success {
+  background: var(--mint-100);
+  color: #0E7A54;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 640px) {
+  .pro-dashboard { padding: 18px 14px 40px; }
+  .pro-header-title h2 { font-size: 1.25rem; }
+  .pro-pharmacy-card { flex-direction: column; align-items: flex-start; }
+  .pro-actions-row { justify-content: flex-start; }
+}
